@@ -1,12 +1,12 @@
-import Left from "./components/Left";
-import Main from "./components/Main";
-import Right from "./components/Right";
+import Left from "./section/Left";
+import Main from "./section/Main";
+import Right from "./section/Right";
 
 function App() {
   return (
     <main className="flex w-ful font-poppins h-screen p-6">
       {/* Right */}
-      <div className="grid-cols-6 grid w-full shadow-2xl rounded-3xl">
+      <div className="md:grid-cols-6 grid w-full shadow-2xl rounded-3xl">
         <Right />
 
         {/* Main */}

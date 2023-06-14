@@ -1,51 +1,51 @@
-import {
-  GrHomeRounded,
-  GrFolder,
-  GrChat,
-  GrGroup,
-  GrSettingsOption,
-} from "react-icons/gr";
-import { BiBarChartSquare } from "react-icons/bi";
-import { BsQuestionCircle } from "react-icons/bs";
-import { IoMdExit } from "react-icons/io";
 import LogoComponent from "../common/LogoComponent";
 import Avatar from "react-avatar";
 import ProjectStatus from "../common/ProjectStatus";
+import {
+  UilEstate,
+  UilFolder,
+  UilCommentAltDots,
+  UilUsersAlt,
+  UilChart,
+  UilQuestionCircle,
+  UilSetting,
+  UilSignout,
+} from "@iconscout/react-unicons";
 const rightNavBarMenuIcon = [
   {
     nameButton: "Home",
-    iconComponent: <GrHomeRounded size={33} />,
+    iconComponent: <UilEstate />,
   },
   {
     nameButton: "Folder",
-    iconComponent: <GrFolder size={33} />,
+    iconComponent: <UilFolder />,
   },
   {
     nameButton: "Chat",
-    iconComponent: <GrChat size={33} />,
+    iconComponent: <UilCommentAltDots />,
   },
   {
     nameButton: "Group",
-    iconComponent: <GrGroup size={33} />,
+    iconComponent: <UilUsersAlt />,
   },
   {
     nameButton: "Chart",
-    iconComponent: <BiBarChartSquare size={33} />,
+    iconComponent: <UilChart />,
   },
   {
     nameButton: "Question",
-    iconComponent: <BsQuestionCircle size={33} />,
+    iconComponent: <UilQuestionCircle />,
   },
 ];
 
 const rightNavBarSettingIcon = [
   {
     nameButton: "Setting",
-    iconComponent: <GrSettingsOption size={33} />,
+    iconComponent: <UilSetting />,
   },
   {
     nameButton: "Logout",
-    iconComponent: <IoMdExit size={33} />,
+    iconComponent: <UilSignout />,
   },
   {
     nameButton: "Logo",
@@ -56,8 +56,8 @@ const rightNavBarSettingIcon = [
 const Right = () => {
   //This is the first part of the right side
   return (
-    <div className=" drop-shadow-xl p-3 border-r h-full col-span-1 grid grid-cols-3">
-      <div className="col-span-1 bg-gray-300/30 flex rounded-l-xl flex-col  justify-between">
+    <div className=" drop-shadow-xl p-3 border-r h-full md:col-span-1 col-span-4 md:grid grid-cols-3">
+      <div className="col-span-1 bg-gray-300/30 flex rounded-t-xl md:rounded-l-xl flex-col  justify-between">
         <div className="flex py-3 flex-col justify-center items-center">
           <div>
             <Avatar
@@ -68,11 +68,11 @@ const Right = () => {
               size="45"
             />
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex w-full px-3 overflow-scroll md:justify-center items-center justify-between md:flex-col">
             {rightNavBarMenuIcon.map((icon) => {
               return (
                 <button
-                  className="h-16 hover:scale-110 transition ease-in-out"
+                  className="md:h-16 flex-shrink-0 hover:scale-110 transition ease-in-out"
                   key={icon.name}
                 >
                   {icon.iconComponent}
@@ -81,11 +81,11 @@ const Right = () => {
             })}
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center -space-y-6">
+        <div className="flex md:flex-col justify-center items-center gap-3">
           {rightNavBarSettingIcon.map((icon) => {
             return (
               <button
-                className="h-16 hover:scale-110 transition ease-in-out"
+                className="md:h-16 h-16 md:opacity-100 opacity-0 absolute md:relative md:visible hover:scale-110 transition ease-in-out"
                 key={icon.name}
               >
                 {icon.iconComponent}
