@@ -4,9 +4,9 @@ import Right from "./section/Right";
 
 function App() {
   return (
-    <main className="flex w-ful font-poppins h-screen p-6">
-      {/* Right */}
-      <div className="md:grid-cols-6 grid w-full shadow-2xl rounded-3xl">
+    <main className="flex w-ful font-poppins h-screen md:p-6">
+      <div className="md:grid-cols-6 md:grid w-full shadow-2xl md:rounded-3xl overflow-scroll no-scrollbar">
+        {/* Right */}
         <Right />
 
         {/* Main */}

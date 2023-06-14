@@ -7,5 +7,9 @@ export default {
       poppins: ["Poppins"],
     },
   },
-  plugins: [],
+
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "dark", "cupcake"],
+  },
 };

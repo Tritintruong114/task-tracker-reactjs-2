@@ -56,19 +56,19 @@ const rightNavBarSettingIcon = [
 const Right = () => {
   //This is the first part of the right side
   return (
-    <div className=" drop-shadow-xl p-3 border-r h-full md:col-span-1 col-span-4 md:grid grid-cols-3">
-      <div className="col-span-1 bg-gray-300/30 flex rounded-t-xl md:rounded-l-xl flex-col  justify-between">
-        <div className="flex py-3 flex-col justify-center items-center">
+    <div className=" drop-shadow-xl md:p-3 border-r md:h-full md:col-span-1 col-span-4 md:grid grid-cols-3">
+      <div className="col-span-1 bg-gray-300/30 flex rounded-xl flex-col  justify-between">
+        <div className="flex  py-3 flex-col justify-center items-center">
           <div>
             <Avatar
               className="hover:scale-110 shadow-md transition ease-in-out cursor-pointer"
               name="Bruno"
               email="truongtritin.bee@gmail.com"
               round
-              size="45"
+              size="30"
             />
           </div>
-          <div className="flex w-full px-3 overflow-scroll md:justify-center items-center justify-between md:flex-col">
+          <div className="flex w-full px-3 no-scrollbar overflow-scroll md:justify-center items-center justify-between md:flex-col">
             {rightNavBarMenuIcon.map((icon) => {
               return (
                 <button
@@ -94,7 +94,7 @@ const Right = () => {
           })}
         </div>
       </div>
-      <div className="col-span-2  px-3 overflow-scroll no-scrollbar w-full h-full  rounded-r-xl ">
+      <div className="col-span-2  md:px-3 overflow-scroll no-scrollbar w-full  rounded-r-xl ">
         <ProjectStatus />
       </div>
     </div>
