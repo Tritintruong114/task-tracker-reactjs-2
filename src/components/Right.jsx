@@ -10,6 +10,7 @@ import { BsQuestionCircle } from "react-icons/bs";
 import { IoMdExit } from "react-icons/io";
 import LogoComponent from "../common/LogoComponent";
 import Avatar from "react-avatar";
+import ProjectStatus from "../common/ProjectStatus";
 const rightNavBarMenuIcon = [
   {
     nameButton: "Home",
@@ -53,13 +54,14 @@ const rightNavBarSettingIcon = [
 ];
 
 const Right = () => {
+  //This is the first part of the right side
   return (
     <div className=" drop-shadow-xl p-3 border-r h-full col-span-1 grid grid-cols-3">
-      <div className="col-span-1 flex bg-slate-300/30 rounded-xl flex-col  justify-between">
+      <div className="col-span-1 bg-gray-300/30 flex rounded-l-xl flex-col  justify-between">
         <div className="flex py-3 flex-col justify-center items-center">
           <div>
             <Avatar
-              className="hover:scale-110 transition ease-in-out cursor-pointer"
+              className="hover:scale-110 shadow-md transition ease-in-out cursor-pointer"
               name="Bruno"
               email="truongtritin.bee@gmail.com"
               round
@@ -92,7 +94,9 @@ const Right = () => {
           })}
         </div>
       </div>
-      <div className="col-span-2">ABC</div>
+      <div className="col-span-2  px-3 overflow-scroll no-scrollbar w-full h-full  rounded-r-xl ">
+        <ProjectStatus />
+      </div>
     </div>
   );
 };
