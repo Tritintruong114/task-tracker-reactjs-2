@@ -7,6 +7,7 @@ import {
   UilAngleDoubleLeft,
 } from "@iconscout/react-unicons";
 import mainImge from "../../public/mainImg.jpg";
+import Dashboard from "../common/Dashboard";
 
 const projectButtons = [
   {
@@ -90,9 +91,7 @@ const Main = () => {
               })}
             </div>
             <div className="grid w-full grid-cols-3 bg-oceanBlue mt-3 h-full">
-              <div className="col-span-1 w-full">1</div>
-              <div className="col-span-1 w-full">2</div>
-              <div className="col-span-1 w-full">3</div>
+              <Dashboard />
             </div>
           </div>
         </div>
