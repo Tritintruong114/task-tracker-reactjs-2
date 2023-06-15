@@ -17,38 +17,38 @@ import { logOutUser } from "../features/userAuthSlice";
 const rightNavBarMenuIcon = [
   {
     nameButton: "Home",
-    iconComponent: <UilEstate />,
+    iconComponent: <UilEstate size={30} />,
   },
   {
     nameButton: "Folder",
-    iconComponent: <UilFolder />,
+    iconComponent: <UilFolder size={30} />,
   },
   {
     nameButton: "Chat",
-    iconComponent: <UilCommentAltDots />,
+    iconComponent: <UilCommentAltDots size={30} />,
   },
   {
     nameButton: "Group",
-    iconComponent: <UilUsersAlt />,
+    iconComponent: <UilUsersAlt size={30} />,
   },
   {
     nameButton: "Chart",
-    iconComponent: <UilChart />,
+    iconComponent: <UilChart size={30} />,
   },
   {
     nameButton: "Question",
-    iconComponent: <UilQuestionCircle />,
+    iconComponent: <UilQuestionCircle size={30} />,
   },
 ];
 
 const rightNavBarSettingIcon = [
   {
     nameButton: "Setting",
-    iconComponent: <UilSetting />,
+    iconComponent: <UilSetting size={30} />,
   },
   {
     nameButton: "Logout",
-    iconComponent: <UilSignout />,
+    iconComponent: <UilSignout size={30} />,
   },
   {
     nameButton: "Logo",
@@ -67,9 +67,9 @@ const Right = () => {
     }
   };
   return (
-    <div className=" drop-shadow-xl md:p-3 border-r md:h-full md:col-span-1 col-span-4 md:grid grid-cols-3">
-      <div className="col-span-1 bg-gray-300/30 flex rounded-xl flex-col  justify-between">
-        <div className="flex  py-3 flex-col justify-center items-center">
+    <div className=" drop-shadow-xl from-ximen to-lightXimen bg-gradient-to-tr md:p-3 md:h-full md:col-span-1 col-span-4 md:grid grid-cols-3">
+      <div className="col-span-1 bg-white text-black flex rounded-xl flex-col  justify-between">
+        <div className="flex py-3 flex-col justify-center items-center">
           <div>
             <Avatar
               className="hover:scale-110 shadow-md transition ease-in-out cursor-pointer"
@@ -83,7 +83,7 @@ const Right = () => {
             {rightNavBarMenuIcon.map((icon) => {
               return (
                 <button
-                  className="md:h-16 flex-shrink-0 hover:scale-110 transition ease-in-out"
+                  className="md:h-16 w text-3xl flex-shrink-0 hover:scale-110 transition ease-in-out"
                   key={icon.nameButton}
                 >
                   {icon.iconComponent}

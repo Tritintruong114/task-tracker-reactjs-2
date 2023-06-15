@@ -52,17 +52,25 @@ const Register = () => {
     dispatch(logInUser());
   };
   return (
-    <div className="grid h-full relative md:col-span-6 md:grid-cols-6 bg-gray-300 w-full">
-      <div className="md:col-span-2 z-10 h-full w-full flex justify-center items-center">
+    <div className="grid h-full relative md:col-span-6 md:grid-cols-6  w-full">
+      <div className="md:col-span-2 p-3 z-10 h-full w-full flex justify-center items-center">
         {isRegister == true && (
-          <div className="col-span-2 w-full flex flex-col justify-center items-center">
+          <div className="col-span-2 rounded-xl  backdrop-blur-md shadow-md md:bg-skyBlue text-white  md:text-black h-full  w-full flex flex-col justify-center items-center">
             <form
-              className="flex flex-col w-1/2 items-start justify-center h-full gap-3"
+              className="flex flex-col w-2/4 md:w-3/4 xl:w-1/2 items-start justify-center h-full gap-3"
               onSubmit={handleSubmit}
             >
+              <h1 className="xl:text-3xl md:text-xl">
+                Welcome to{" "}
+                <p className="md:text-3xl xl:text-6xl text-6xl font-extrabold">
+                  Register
+                </p>
+              </h1>
               <label className="flex flex-col w-full">
                 Email:
                 <input
+                  placeholder="truongtritin.bee@gmail.com"
+                  className="py-2 px-3 focus:outline-none rounded-md shadow-md"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -71,6 +79,8 @@ const Register = () => {
               <label className="flex flex-col w-full">
                 Password:
                 <input
+                  placeholder="min 8 characters"
+                  className="py-2 px-3 focus:outline-none rounded-md shadow-md"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -79,24 +89,39 @@ const Register = () => {
               <label className="flex flex-col w-full">
                 Name:
                 <input
+                  placeholder="Bruno"
+                  className="py-2 px-3 focus:outline-none rounded-md shadow-md"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </label>
-              <button type="submit">Register</button>
+              <button
+                className="py-2 hover:bg-darkBlue hover:text-white px-6 hover:scale-110 transition ease-in-out shadow-md text-black  bg-white rounded-md w-full mt-3 "
+                type="submit"
+              >
+                Register
+              </button>
             </form>
           </div>
         )}
         {isRegister == false && (
-          <div className="col-span-2 w-full flex flex-col justify-center items-center">
+          <div className="col-span-2 md:bg-skyBlue  shadow-md text-white  md:text-black backdrop-blur-md md:backdrop-blur-none h-full rounded-xl bg-yellow-50   w-full flex flex-col justify-center items-center">
             <form
-              className="flex flex-col w-1/2 items-center justify-center h-full gap-3"
+              className="flex flex-col  w-2/4 md:w-3/4  xl:w-1/2 md:items-start items-center justify-center h-full gap-3"
               onSubmit={handleLogIn}
             >
+              <h1 className="xl:text-3xl md:text-xl">
+                Welcome to{" "}
+                <p className="md:text-3xl xl:text-6xl text-6xl font-extrabold">
+                  Trackit
+                </p>
+              </h1>
               <label className="flex flex-col w-full">
                 Email:
                 <input
+                  placeholder="truongtritin.bee@gmail.com"
+                  className="py-2 px-3 focus:outline-none text-sm rounded-md shadow-md"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -105,22 +130,27 @@ const Register = () => {
               <label className="flex flex-col w-full">
                 Password:
                 <input
+                  placeholder="password"
+                  className="py-2 px-3  text-sm  focus:outline-none rounded-md shadow-md"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </label>
               <div className="w-full gap-3 flex flex-col">
-                <button className="opacity-60 py-1 px-6  text-sm">
+                <button className=" py-1 hover:scale-110 transition ease-in-out px-6 text-white md:text-black  text-sm">
                   Forgot password?
                 </button>
                 <button
-                  className="py-1 px-6 bg-rose-600/30"
+                  className="py-2 hover:bg-darkBlue hover:text-white hover:scale-110 transition ease-in-out px-6 shadow-md text-black  bg-white rounded-md "
                   onClick={() => handleRegister()}
                 >
                   Register
                 </button>
-                <button className="py-1 px-6 bg-rose-600/30" type="submit">
+                <button
+                  className="py-2 hover:bg-darkBlue hover:text-white  hover:scale-110 transition ease-in-out px-6 shadow-md text-black  bg-white rounded-md "
+                  type="submit"
+                >
                   Login
                 </button>
               </div>
@@ -128,8 +158,8 @@ const Register = () => {
           </div>
         )}
       </div>
-      <div className="col-span-4 md:opacity-100 p-3 z-0 md:relative absolute   w-full">
-        <img className="h-full object-cover rounded-md" src={registerBG}></img>
+      <div className="col-span-4 md:opacity-100 h-full p-3 z-0 md:relative absolute  w-full">
+        <img className="h-full object-cover rounded-xl" src={registerBG}></img>
       </div>
       <div className="absolute">
         <ToastContainer position="top-left" />

@@ -12,7 +12,11 @@ const ProjectStatus = () => {
         <option>Active ✔️</option>
         <option>Cancel ❌</option>
       </select>
-      <div className="w-full md:h-full px-3 mt-3 ">ABC</div>
+      <div className="w-full md:h-full mt-3 text-white ">
+        <button className="hover:bg-white hover:text-lightXimen w-full rounded-md">
+          AI Tech Com
+        </button>
+      </div>
     </div>
   );
 };
