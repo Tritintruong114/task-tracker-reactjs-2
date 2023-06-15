@@ -55,7 +55,7 @@ const Register = () => {
     <div className="grid h-full relative md:col-span-6 md:grid-cols-6  w-full">
       <div className="md:col-span-2 p-3 z-10 h-full w-full flex justify-center items-center">
         {isRegister == true && (
-          <div className="col-span-2 rounded-xl  backdrop-blur-md shadow-md md:bg-skyBlue text-white  md:text-black h-full  w-full flex flex-col justify-center items-center">
+          <div className="col-span-2 rounded-xl  backdrop-blur-md shadow-md md:from-ximen md:to-lightXimen md:bg-gradient-to-tl text-white  md:text-white h-full  w-full flex flex-col justify-center items-center">
             <form
               className="flex flex-col w-2/4 md:w-3/4 xl:w-1/2 items-start justify-center h-full gap-3"
               onSubmit={handleSubmit}
@@ -97,7 +97,7 @@ const Register = () => {
                 />
               </label>
               <button
-                className="py-2 hover:bg-darkBlue hover:text-white px-6 hover:scale-110 transition ease-in-out shadow-md text-black  bg-white rounded-md w-full mt-3 "
+                className="py-2 hover:bg-lightXimen hover:text-white px-6 hover:scale-110 transition ease-in-out shadow-md text-black  bg-white rounded-md w-full mt-3 "
                 type="submit"
               >
                 Register
@@ -106,7 +106,7 @@ const Register = () => {
           </div>
         )}
         {isRegister == false && (
-          <div className="col-span-2 md:bg-skyBlue  shadow-md text-white  md:text-black backdrop-blur-md md:backdrop-blur-none h-full rounded-xl bg-yellow-50   w-full flex flex-col justify-center items-center">
+          <div className="col-span-2  md:from-ximen md:to-lightXimen md:bg-gradient-to-tl  shadow-md text-white  md:text-white backdrop-blur-md md:backdrop-blur-none h-full rounded-xl bg-yellow-50   w-full flex flex-col justify-center items-center">
             <form
               className="flex flex-col  w-2/4 md:w-3/4  xl:w-1/2 md:items-start items-center justify-center h-full gap-3"
               onSubmit={handleLogIn}
@@ -138,17 +138,17 @@ const Register = () => {
                 />
               </label>
               <div className="w-full gap-3 flex flex-col">
-                <button className=" py-1 hover:scale-110 transition ease-in-out px-6 text-white md:text-black  text-sm">
+                <button className=" py-1 hover:scale-110 transition ease-in-out px-6 text-white md:text-white  text-sm">
                   Forgot password?
                 </button>
                 <button
-                  className="py-2 hover:bg-darkBlue hover:text-white hover:scale-110 transition ease-in-out px-6 shadow-md text-black  bg-white rounded-md "
+                  className="py-2 hover:bg-lightXimen hover:text-white hover:scale-110 transition ease-in-out px-6 shadow-md text-black  bg-white rounded-md "
                   onClick={() => handleRegister()}
                 >
                   Register
                 </button>
                 <button
-                  className="py-2 hover:bg-darkBlue hover:text-white  hover:scale-110 transition ease-in-out px-6 shadow-md text-black  bg-white rounded-md "
+                  className="py-2 hover:bg-lightXimen hover:text-white  hover:scale-110 transition ease-in-out px-6 shadow-md text-black  bg-white rounded-md "
                   type="submit"
                 >
                   Login
