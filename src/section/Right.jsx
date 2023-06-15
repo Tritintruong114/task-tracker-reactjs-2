@@ -11,6 +11,9 @@ import {
   UilSetting,
   UilSignout,
 } from "@iconscout/react-unicons";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { logOutUser } from "../features/userAuthSlice";
 const rightNavBarMenuIcon = [
   {
     nameButton: "Home",
@@ -54,7 +57,15 @@ const rightNavBarSettingIcon = [
 ];
 
 const Right = () => {
+  const dispatch = useDispatch();
+  const { isLogOut } = useSelector((store) => store.userAuth);
   //This is the first part of the right side
+  const handleClick = (name) => {
+    console.log(name);
+    if (name === "Logout") {
+      dispatch(logOutUser());
+    }
+  };
   return (
     <div className=" drop-shadow-xl md:p-3 border-r md:h-full md:col-span-1 col-span-4 md:grid grid-cols-3">
       <div className="col-span-1 bg-gray-300/30 flex rounded-xl flex-col  justify-between">
@@ -73,7 +84,7 @@ const Right = () => {
               return (
                 <button
                   className="md:h-16 flex-shrink-0 hover:scale-110 transition ease-in-out"
-                  key={icon.name}
+                  key={icon.nameButton}
                 >
                   {icon.iconComponent}
                 </button>
@@ -85,8 +96,9 @@ const Right = () => {
           {rightNavBarSettingIcon.map((icon) => {
             return (
               <button
+                onClick={() => handleClick(`${icon.nameButton}`)}
                 className="md:h-16 h-16 md:opacity-100 opacity-0 absolute md:relative md:visible hover:scale-110 transition ease-in-out"
-                key={icon.name}
+                key={icon.nameButton}
               >
                 {icon.iconComponent}
               </button>

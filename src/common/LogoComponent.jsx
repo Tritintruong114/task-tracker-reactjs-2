@@ -1,6 +1,6 @@
-import logoProject from "../../public/logoProject.png";
+import logoProject from "../../public/logoProject.svg";
 const LogoComponent = () => {
-  return <img className="object-cover h-full w-full" src={logoProject}></img>;
+  return <img className="object-cover h-9 w-9" src={logoProject}></img>;
 };
 
 export default LogoComponent;
