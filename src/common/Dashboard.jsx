@@ -15,7 +15,7 @@ const Dashboard = () => {
   }, []);
   return (
     <DragDropContext>
-      <Droppable droppableId="todo" direction="vertical">
+      <Droppable droppableId="todo">
         {(provided) => (
           <ul
             {...provided.droppableProps}
