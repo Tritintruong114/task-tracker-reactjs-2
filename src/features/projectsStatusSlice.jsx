@@ -10,6 +10,7 @@ export const getTodosGroupByColumn = createAsyncThunk(
         import.meta.env.VITE_PUBLIC_TODOS_COLLECTION_ID
       );
 
+      // return data;
       return data;
     } catch (error) {
       console.log(error);
@@ -21,6 +22,9 @@ const initialState = {
   active: true,
   cancel: true,
   todos: [],
+  todo: [],
+  inprogess: [],
+  done: [],
 };
 
 export const projectsStatusSlice = createSlice({
@@ -33,7 +37,16 @@ export const projectsStatusSlice = createSlice({
         return state;
       })
       .addCase(getTodosGroupByColumn.fulfilled, (state, action) => {
-        console.log(action.payload);
+        state.todo = action.payload.documents.filter(
+          (todo) => todo.status == "todo"
+        );
+        console.log(state.todo);
+        state.inprogess = action.payload.documents.filter(
+          (todo) => todo.status == "inprogress"
+        );
+        state.done = action.payload.documents.filter(
+          (todo) => todo.status == "done"
+        );
         state.todos = action.payload.documents;
       })
       .addCase(getTodosGroupByColumn.rejected, (state) => {

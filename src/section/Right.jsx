@@ -74,7 +74,7 @@ const Right = () => {
             <Avatar
               className="hover:scale-110 shadow-md transition ease-in-out cursor-pointer"
               name="Bruno"
-              email="truongtritin.bee@gmail.com"
+              // email="truongtritin.bee@gmail.com"
               round
               size="30"
             />
