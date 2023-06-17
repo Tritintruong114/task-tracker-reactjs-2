@@ -54,6 +54,7 @@ const Main = () => {
   const [toggleNavBar, setToggleNavBar] = useState(false);
   const dispatch = useDispatch();
   const { hideRightNavBar } = useSelector((store) => store.projectsStatus);
+
   const handleShowToMain = (name) => {
     setShowToMain(name);
   };
@@ -63,6 +64,7 @@ const Main = () => {
   };
 
   useEffect(() => {
+    console.log("effect");
     dispatch(getTodosGroupByColumn());
   }, []);
 
