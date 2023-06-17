@@ -1,7 +1,6 @@
 import { Client, Account, ID } from "appwrite";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { store } from "./../store/store";
 import { useDispatch } from "react-redux";
 import {
   logInUser,
@@ -11,11 +10,10 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import registerBG from "../../public/registerBG.png";
+import { Link } from "react-router-dom";
 
 const Register = () => {
-  const { isAuth, isRegister, userName } = useSelector(
-    (store) => store.userAuth
-  );
+  const { isRegister } = useSelector((store) => store.userAuth);
 
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -153,7 +151,7 @@ const Register = () => {
                   className="py-2 hover:bg-lightXimen hover:text-white  hover:scale-110 transition ease-in-out px-6 shadow-md text-black  bg-white rounded-md "
                   type="submit"
                 >
-                  Login
+                  <Link className="profile">Login</Link>
                 </button>
               </div>
             </form>

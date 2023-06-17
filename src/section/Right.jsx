@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { logOutUser } from "../features/userAuthSlice";
 import { useState } from "react";
+import { showProfile } from "../features/handleButtonSlice";
 const rightNavBarMenuIcon = [
   {
     nameButton: "Home",
@@ -57,17 +58,20 @@ const rightNavBarSettingIcon = [
   },
 ];
 
+//This is the first part of the right side
 const Right = () => {
   const dispatch = useDispatch();
-  const { isLogOut } = useSelector((store) => store.userAuth);
 
-  const [hideNavBar, setHideNavBar] = useState(false);
-  //This is the first part of the right side
+  //Handle Log out button
   const handleClick = (name) => {
-    console.log(name);
     if (name === "Logout") {
       dispatch(logOutUser());
     }
+  };
+
+  //Handle Show profile of user
+  const handleShowProfile = () => {
+    dispatch(showProfile(true));
   };
 
   return (
@@ -79,6 +83,7 @@ const Right = () => {
               className="hover:scale-110 shadow-md transition ease-in-out cursor-pointer"
               name="Bruno"
               // email="truongtritin.bee@gmail.com"
+              onClick={() => handleShowProfile()}
               round
               size="30"
             />
