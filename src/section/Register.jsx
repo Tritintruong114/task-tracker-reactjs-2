@@ -11,10 +11,12 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import registerBG from "../../public/registerBG.png";
+
 const Register = () => {
   const { isAuth, isRegister, userName } = useSelector(
     (store) => store.userAuth
   );
+
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

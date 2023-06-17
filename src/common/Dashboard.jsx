@@ -3,18 +3,30 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { getTodosGroupByColumn } from "../features/projectsStatusSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import Column from "./Column";
 
 const Dashboard = () => {
   const { todos, todo, inprogress, done } = useSelector(
     (store) => store.projectsStatus
   );
+  const [listTodo, setListTodo] = useState(todo);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    //fetch Data board
     dispatch(getTodosGroupByColumn());
+    setListTodo(todo);
   }, []);
+
+  const handleOnDragEnd = (result) => {
+    const items = Array.from(listTodo); //Create a new array store odd array
+    const [reoderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reoderedItem);
+    console.log(items);
+    setListTodo(items);
+  };
   return (
-    <DragDropContext>
+    <DragDropContext onDragEnd={handleOnDragEnd}>
       <Droppable droppableId="todo">
         {(provided) => (
           <ul
@@ -29,15 +41,17 @@ const Dashboard = () => {
                 index={index}
               >
                 {(provided) => (
-                  <li
-                    className="py-3 bg-ximen text-white"
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                    ref={provided.innerRef}
-                    key={status.$id}
-                  >
-                    {status.title}
-                  </li>
+                  <>
+                    <li
+                      className="py-3 bg-ximen text-white"
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      ref={provided.innerRef}
+                      key={status.$id}
+                    >
+                      {status.title}
+                    </li>
+                  </>
                 )}
               </Draggable>
             ))}
