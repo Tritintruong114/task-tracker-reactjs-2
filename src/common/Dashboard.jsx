@@ -3,8 +3,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { getTodosGroupByColumn } from "../features/projectsStatusSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import React, { useState } from "react";
-import Column from "./Column";
+import { useState } from "react";
 
 const Dashboard = () => {
   const { todos, todo, inprogress, done } = useSelector(
@@ -15,7 +14,6 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTodosGroupByColumn());
-    setListTodo(todo);
   }, []);
 
   const handleOnDragEnd = (result) => {
@@ -34,7 +32,7 @@ const Dashboard = () => {
             ref={provided.innerRef}
             className="col-span-1 w-full h-1/2 space-y-3 bg-lightXimen"
           >
-            {todo?.map((status, index) => (
+            {listTodo?.map((status, index) => (
               <Draggable
                 draggableId={status.$id}
                 key={status.$id}

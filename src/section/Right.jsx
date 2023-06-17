@@ -14,6 +14,7 @@ import {
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { logOutUser } from "../features/userAuthSlice";
+import { useState } from "react";
 const rightNavBarMenuIcon = [
   {
     nameButton: "Home",
@@ -59,6 +60,8 @@ const rightNavBarSettingIcon = [
 const Right = () => {
   const dispatch = useDispatch();
   const { isLogOut } = useSelector((store) => store.userAuth);
+
+  const [hideNavBar, setHideNavBar] = useState(false);
   //This is the first part of the right side
   const handleClick = (name) => {
     console.log(name);
@@ -66,6 +69,7 @@ const Right = () => {
       dispatch(logOutUser());
     }
   };
+
   return (
     <div className=" drop-shadow-xl from-ximen to-lightXimen bg-gradient-to-tr md:p-3 md:h-full md:col-span-1 col-span-4 md:grid grid-cols-3">
       <div className="col-span-1 bg-white text-black flex rounded-xl flex-col  justify-between">

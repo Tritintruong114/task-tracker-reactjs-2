@@ -25,12 +25,18 @@ const initialState = {
   todo: [],
   inprogess: [],
   done: [],
+  hideRightNavBar: false,
 };
 
 export const projectsStatusSlice = createSlice({
   name: "projectsStatus",
   initialState,
-  reducers: {},
+  reducers: {
+    hideNavBar: (state, action) => {
+      console.log(action.payload);
+      state.hideRightNavBar = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getTodosGroupByColumn.pending, (state) => {
@@ -55,4 +61,5 @@ export const projectsStatusSlice = createSlice({
   },
 });
 
+export const { hideNavBar } = projectsStatusSlice.actions;
 export default projectsStatusSlice.reducer;
