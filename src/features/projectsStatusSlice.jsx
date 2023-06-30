@@ -9,7 +9,6 @@ export const getTodosGroupByColumn = createAsyncThunk(
         import.meta.env.VITE_PUBLIC_DATABASE_ID,
         import.meta.env.VITE_PUBLIC_TODOS_COLLECTION_ID
       );
-
       // return data;
       return data;
     } catch (error) {

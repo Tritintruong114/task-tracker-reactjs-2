@@ -12,9 +12,7 @@ import {
   UilSignout,
 } from "@iconscout/react-unicons";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { logOutUser } from "../features/userAuthSlice";
-import { useState } from "react";
 import { showProfile } from "../features/handleButtonSlice";
 const rightNavBarMenuIcon = [
   {
@@ -65,6 +63,7 @@ const Right = () => {
   //Handle Log out button
   const handleClick = (name) => {
     if (name === "Logout") {
+      console.log("Logout click");
       dispatch(logOutUser());
     }
   };

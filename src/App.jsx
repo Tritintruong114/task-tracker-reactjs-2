@@ -5,6 +5,7 @@ import Register from "./section/Register";
 import "react-toastify/dist/ReactToastify.css";
 import { Outlet } from "react-router-dom";
 import Main from "./section/Main";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { isAuth } = useSelector((store) => store.userAuth);
@@ -14,17 +15,17 @@ function App() {
     <main className="flex w-ful font-poppins h-screen md:p-6">
       <div className="md:grid-cols-6 h-full md:grid w-full shadow-2xl md:rounded-3xl overflow-scroll no-scrollbar">
         {/* <ToastContainer /> */}
-        {/* {isAuth == false ? (
+        {isAuth == false ? (
           <Register />
-        ) : ( */}
-        <>
-          {hideRightNavBar == false && <Right />}
+        ) : (
+          <>
+            {hideRightNavBar == false && <Right />}
 
-          <Main />
+            <Main />
 
-          <Left />
-        </>
-        {/* )} */}
+            <Left />
+          </>
+        )}
       </div>
     </main>
   );

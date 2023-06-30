@@ -1,4 +1,3 @@
-import { fa } from "@faker-js/faker";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -7,7 +6,9 @@ const initialState = {
   isLogOut: false,
   email: "",
   userName: "",
+  techStack: [],
 };
+
 export const userAuthSlice = createSlice({
   name: "projectsStatus",
   initialState,
@@ -20,6 +21,7 @@ export const userAuthSlice = createSlice({
     },
     logInUser: (state) => {
       state.isAuth = true;
+      console.log(state.isAuth);
     },
     logOutUser: (state) => {
       state.isAuth = false;
