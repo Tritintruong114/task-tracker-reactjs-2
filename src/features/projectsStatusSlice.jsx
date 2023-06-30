@@ -1,16 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { databases } from "../appwrite";
+import { client, databases } from "../appwrite";
 
-export const getTodosGroupByColumn = createAsyncThunk(
+export const getTestGroupByColumn = createAsyncThunk(
   "getTodosArray/Todos",
   async () => {
     try {
-      const data = await databases.listDocuments(
+      client
+        .setEndpoint(import.meta.env.VITE_PUBLIC_ENDPOINT)
+        .setProject(import.meta.env.VITE_PUBLIC_PROJECT);
+      
+        const track = await databases.listDocuments(
         import.meta.env.VITE_PUBLIC_DATABASE_ID,
-        import.meta.env.VITE_PUBLIC_TODOS_COLLECTION_ID
+        import.meta.env.VITE_PUBLIC_COLLECTION
       );
       // return data;
-      return data;
+      return track;
     } catch (error) {
       console.log(error);
     }
@@ -38,23 +42,13 @@ export const projectsStatusSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getTodosGroupByColumn.pending, (state) => {
+      .addCase(getTestGroupByColumn.pending, (state) => {
         return state;
       })
-      .addCase(getTodosGroupByColumn.fulfilled, (state, action) => {
-        state.todo = action.payload.documents.filter(
-          (todo) => todo.status == "todo"
-        );
-        console.log(state.todo);
-        state.inprogess = action.payload.documents.filter(
-          (todo) => todo.status == "inprogress"
-        );
-        state.done = action.payload.documents.filter(
-          (todo) => todo.status == "done"
-        );
-        state.todos = action.payload.documents;
+      .addCase(getTestGroupByColumn.fulfilled, (state, action) => {
+        console.log(action.payload);
       })
-      .addCase(getTodosGroupByColumn.rejected, (state) => {
+      .addCase(getTestGroupByColumn.rejected, (state) => {
         return state;
       });
   },

@@ -18,7 +18,7 @@ import Feedback from "../common/Feedback";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import {
-  getTodosGroupByColumn,
+  getTestGroupByColumn,
   hideNavBar,
 } from "../features/projectsStatusSlice";
 import { useEffect } from "react";
@@ -65,7 +65,7 @@ const Main = () => {
 
   useEffect(() => {
     console.log("effect");
-    dispatch(getTodosGroupByColumn());
+    dispatch(getTestGroupByColumn());
   }, []);
 
   return (
@@ -157,3 +157,4 @@ const Main = () => {
 };
 
 export default Main;
+import { Client, Account, ID, Databases, Storage } from "appwrite";

@@ -1,13 +1,17 @@
 import { Client, Account, ID, Databases, Storage } from "appwrite";
+export const databases = new Databases();
+export const client = new Client();
+export async function getServerSideProps(context) {
+  client
+    .setEndpoint(import.meta.env.VITE_PUBLIC_ENDPOINT)
+    .setProject(import.meta.env.VITE_PUBLIC_PROJECT);
 
-const client = new Client();
+  const track = await databases.listDocuments(
+    import.meta.env.VITE_PUBLIC_DATABASE_ID,
+    import.meta.env.VITE_PUBLIC_COLLECTION
+  );
 
-client
-  .setEndpoint("https://cloud.appwrite.io/v1")
-  .setProject(import.meta.env.VITE_PROJECT_ID);
-
-const account = new Account(client);
-const databases = new Databases(client);
-const storage = new Storage(client);
-
-export { client, account, databases, storage, ID };
+  return {
+    props: { track },
+  };
+}

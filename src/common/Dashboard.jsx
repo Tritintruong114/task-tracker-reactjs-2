@@ -1,15 +1,14 @@
 import { useEffect } from "react";
-import { getTodosGroupByColumn } from "../features/projectsStatusSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { getTestGroupByColumn } from "../features/projectsStatusSlice";
 
 const Dashboard = () => {
   const { todo } = useSelector((store) => store.projectsStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTodosGroupByColumn());
+    dispatch(getTestGroupByColumn());
   }, []);
 
   return (
